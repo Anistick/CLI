@@ -1,9 +1,9 @@
-#include <iostream>
-#include <string>
-using namespace std;
-int progarg = 0;
-int firstarg = 1;
-int lastarg = 2;
+#include <iostream> // Input / Output Stream
+#include <string> // String support
+using namespace std; // Use namespace STD to prevent std::
+int progarg = 0; // Program Argument (anistick.exe)
+int firstarg = 1; // Major argument (anistick.exe major) e.g self installs like anistick.exe install
+int lastarg = 2; // Minor argument (anistick.exe major minor)
 string binname = "Anistick";
 string ghvia = " via GitHub";
 string extvia = "via external source";
@@ -14,8 +14,9 @@ int main(int argc, char** argv)
             cout << "Now installing " << binname << ghvia << "." << endl;
         }
     }
-    if (argc > 2) {
-        return -1;
+    if (argc > 3) {
+        cout << "Arguments are too high.";
+        return firstarg;
     }
     return 0;
 }
