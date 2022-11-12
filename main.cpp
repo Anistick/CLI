@@ -9,8 +9,8 @@ using namespace std; // Use namespace STD to prevent std::
 int progarg = 0; // Program Argument (anistick.exe)
 int firstarg = 1; // Major argument (anistick.exe major) e.g self installs like anistick.exe install
 int lastarg = 2; // Minor argument (anistick.exe major minor)
-const string typerel = " Beta ";
-const string ver = "0.1.0";
+const string typerel = " Release ";
+const string ver = "0.2.0";
 const string binname = "Anistick";
 const string wrappero = "Wrapper: Offline";
 const string ga4sr = "GoAnimate4Schools Remastered";
@@ -26,6 +26,7 @@ LPCTSTR wofn = L"Wrapper-Offline.zip";
 LPCTSTR asfn = L"Anistick.zip";
 LPCTSTR gaffn = L"GoAnimate4SchoolsRemastered.rar";
 LPCTSTR gafurl = L"https://s3.anistick.com/ga4sr.rar/ga4sr.rar";
+LPCTSTR SUC = L"Success";
 DWORD dwz = 0;
 wstring fexerr(LPCTSTR fexerrm) {
     wstring xma = wstring(L"File ") + fexerrm + wstring(L" exists. Please delete the file and try again.");
@@ -49,7 +50,7 @@ int dwnld(string dwnldmain)
         } else {
             cout << "Now downloading " << binname << extvia << gh << "." << endl;
             if (S_OK == URLDownloadToFile(nullptr, (asurl), (asfn), dwz, nullptr)) {
-                MessageBox(NULL, DS(asfn).c_str(), NULL, MB_OK);
+                MessageBox(NULL, DS(asfn).c_str(), SUC, MB_OK);
                 return 0;
             }
             else {
@@ -68,7 +69,7 @@ int dwnld(string dwnldmain)
         else {
             cout << "Now downloading " << wrappero << extvia << gh << "." << endl;
             if (S_OK == URLDownloadToFile(nullptr, (wourl), (wofn), dwz, nullptr)) {
-                MessageBox(NULL, DS(wofn).c_str(), NULL, MB_OK);
+                MessageBox(NULL, DS(wofn).c_str(), SUC, MB_OK);
                 return 0;
             }
             else {
@@ -87,7 +88,7 @@ int dwnld(string dwnldmain)
         else {
             cout << "Now downloading " << ga4sr << extvia << acdn << "." << endl;
             if (S_OK == URLDownloadToFile(nullptr, (gafurl), (gaffn), dwz, nullptr)) {
-                MessageBox(NULL, DS(gaffn).c_str(), NULL, MB_OK);
+                MessageBox(NULL, DS(gaffn).c_str(), SUC, MB_OK);
                 return 0;
             }
             else {
